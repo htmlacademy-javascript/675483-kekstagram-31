@@ -20,15 +20,14 @@ const getRandomId = function(min, max) {
   const arrayId = [];
   return function() {
     let id = getRandom(min, max);
-    if (arrayId.length === max) {
-      return null;
-    }
-    while (arrayId.includes(id)) {
-      id = getRandom(min, max);
+    if (!arrayId.length >= max) {
+      while (arrayId.includes(id)) {
+        id = getRandom(min, max);
+      }
     }
     arrayId.push(id);
     return id;
   };
 };
 
-export {getRandom, getRandomElement, getRandomId};
+export { getRandom, getRandomElement, getRandomId };

@@ -1,4 +1,4 @@
-import {getRandom, getRandomElement, getRandomId} from './util.js';
+import { getRandom, getRandomElement, getRandomId } from './util.js';
 
 const MESSAGE = [
   'Всё отлично!',
@@ -61,6 +61,8 @@ const createPhoto = function() {
 
 // Создаем массив из объектов "Фото" длиной length
 
-const getPhotos = () => Array.from({length: NUMBER_OF_PHOTOS}, createPhoto);
+const getPhotos = function() {
+  return Array.from({length: NUMBER_OF_PHOTOS}, createPhoto);
+};
 
-export {getPhotos};
+export { getPhotos };
