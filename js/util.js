@@ -20,7 +20,7 @@ const getRandomId = function(min, max) {
   const arrayId = [];
   return function() {
     let id = getRandom(min, max);
-    if (!arrayId.length >= max) {
+    if (arrayId.length < max) {
       while (arrayId.includes(id)) {
         id = getRandom(min, max);
       }
@@ -30,4 +30,28 @@ const getRandomId = function(min, max) {
   };
 };
 
-export { getRandom, getRandomElement, getRandomId };
+// Проверяем, нажата ли клавиша ESC при закрытии модального окна
+
+const isEscapeKey = function(evt) {
+  return evt.key === 'Escape';
+};
+
+// Проверяем, нажата ли клавиша ENTER при открытии модального окна
+
+// const isEnterKey = function(evt) {
+//   return evt.key === 'Enter';
+// };
+
+// Открытие и закрытие модального окна
+
+const modalHiddenToggle = (modal) => {
+  modal.classList.toggle('hidden');
+};
+
+// Блокировка и разбокировка скролла
+
+const scrollLockToggle = () => {
+  document.body.classList.toggle('modal-open');
+};
+
+export { getRandom, getRandomElement, getRandomId, isEscapeKey, modalHiddenToggle, scrollLockToggle };

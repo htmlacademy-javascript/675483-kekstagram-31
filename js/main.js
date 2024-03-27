@@ -1,5 +1,7 @@
 import { getPhotos } from './data.js';
-import './photo.js';
+import { getGallery, picturesList } from './gallery.js';
+import { addModalHandler } from './action-modal.js';
 
-getPhotos();
-// console.log(getPhotos());
+const pictures = getPhotos();
+getGallery(pictures);
+addModalHandler(picturesList, pictures);
